@@ -1,26 +1,57 @@
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Send, Linkedin, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Send, Linkedin, Github, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
+import emailjs from "@emailjs/browser";
+
+const EMAILJS_SERVICE_ID = "service_g5ylghy";
+const EMAILJS_TEMPLATE_ID = "template_wwm5yyk";
+const EMAILJS_PUBLIC_KEY = "Lzl5BdPzE3CFZOlw8";
 
 const Contact = () => {
   const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. I'll get back to you soon!",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+          to_name: "Saurabh Pathak",
+        },
+        EMAILJS_PUBLIC_KEY
+      );
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("EmailJS error:", error);
+      toast({
+        title: "Failed to send message",
+        description: "Please try again or contact me directly via email.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo = [
@@ -128,10 +159,15 @@ const Contact = () => {
                 </div>
                 <Button
                   type="submit"
+                  disabled={isSubmitting}
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
                 >
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
+                  {isSubmitting ? (
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  ) : (
+                    <Send className="w-4 h-4 mr-2" />
+                  )}
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </div>
