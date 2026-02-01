@@ -64,8 +64,8 @@ const Contact = () => {
     {
       icon: Phone,
       label: "Mobile",
-      value: "+91 98045129",
-      href: "tel:+9198045129",
+      value: "+91 9198045129",
+      href: "tel:+919198045129",
     },
     {
       icon: MapPin,
