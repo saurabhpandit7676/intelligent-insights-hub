@@ -21,10 +21,15 @@ const Experience = () => {
   const education = {
     icon: GraduationCap,
     degree: "Bachelor of Technology (B.Tech)",
-    field: "Computer Science / Information Technology",
-    status: "Currently Pursuing",
-    subjects: ["Python", "Data Structures", "DBMS", "Operating Systems", "Machine Learning fundamentals"],
-    note: "Emphasis on practical and project-based learning",
+    field: "Computer Science And Engineering",
+    duration: "2022 - 2026",
+    subjects: ["Data Structures & Algorithms", "Database Management Systems", "Operating Systems", "Machine Learning", "Artificial Intelligence", "Computer Networks"],
+    highlights: [
+      "Focused on building strong fundamentals in computer science and software development",
+      "Active participation in coding competitions and hackathons",
+      "Completed multiple projects in Data Science and Machine Learning",
+      "Strong foundation in mathematics, statistics, and problem-solving",
+    ],
   };
 
   return (
@@ -102,7 +107,7 @@ const Experience = () => {
                   <p className="text-accent font-medium">{education.field}</p>
                 </div>
                 <span className="px-3 py-1 text-sm rounded-full bg-accent/10 text-accent">
-                  {education.status}
+                  {education.duration}
                 </span>
               </div>
 
@@ -123,9 +128,17 @@ const Experience = () => {
                 </div>
               </div>
 
-              <p className="text-muted-foreground italic text-sm">
-                📚 {education.note}
-              </p>
+              <div>
+                <span className="text-sm font-medium mb-2 block">Highlights</span>
+                <ul className="space-y-2">
+                  {education.highlights.map((highlight, i) => (
+                    <li key={i} className="flex items-start gap-3 text-muted-foreground text-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent mt-1.5 flex-shrink-0" />
+                      {highlight}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </motion.div>
         </div>
