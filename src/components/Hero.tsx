@@ -33,7 +33,7 @@ const Hero = () => {
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-accent animate-gradient-shift bg-300% p-1">
                 <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
                   <div className="w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-full bg-gradient-to-br from-secondary to-muted flex items-center justify-center overflow-hidden">
-                    <span className="text-6xl md:text-7xl font-heading font-bold gradient-text">SP</span>
+                    <span className="text-2xl md:text-3xl font-heading font-bold gradient-text text-center px-4">Saurabh Pathak</span>
                   </div>
                 </div>
               </div>
