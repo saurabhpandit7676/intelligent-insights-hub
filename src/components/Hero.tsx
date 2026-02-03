@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Download, Mail, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import profilePhoto from "@/assets/profile-photo.jpeg";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -32,9 +33,11 @@ const Hero = () => {
             <div className="relative w-56 h-56 md:w-72 md:h-72">
               <div className="absolute inset-0 rounded-full bg-gradient-to-br from-primary to-accent animate-gradient-shift bg-300% p-1">
                 <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-                  <div className="w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-full bg-gradient-to-br from-secondary to-muted flex items-center justify-center overflow-hidden">
-                    <span className="text-2xl md:text-3xl font-heading font-bold gradient-text text-center px-4">Saurabh Pathak</span>
-                  </div>
+                  <img 
+                    src={profilePhoto} 
+                    alt="Saurabh Pathak" 
+                    className="w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-full object-cover object-top"
+                  />
                 </div>
               </div>
               {/* Glow Effect */}
