@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, Brain, Database, BarChart3, Server } from "lucide-react";
+import { ExternalLink, Github, Brain, Database, BarChart3, Server, ArrowUpRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Projects = () => {
@@ -35,7 +35,7 @@ const Projects = () => {
       title: "Unsupervised Learning Analysis",
       description: "Deep dive into clustering algorithms including KMeans and DBSCAN for pattern discovery in unlabeled data.",
       techStack: ["Python", "KMeans", "DBSCAN", "Data Visualization", "Feature Engineering"],
-      color: "from-green-500 to-emerald-400",
+      color: "from-emerald-500 to-green-400",
       liveLink: null,
     },
     {
@@ -49,18 +49,34 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="section-padding bg-secondary/30">
-      <div className="container-custom">
+    <section id="projects" className="section-padding relative overflow-hidden">
+      {/* Background Elements */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-1/3 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px]" />
+        <div className="absolute bottom-1/3 right-0 w-[350px] h-[350px] bg-accent/5 rounded-full blur-[90px]" />
+      </div>
+
+      <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <span className="text-primary font-medium text-sm uppercase tracking-wider">Projects</span>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mt-2">
-            Featured <span className="gradient-text">Work</span>
+          <motion.span 
+            initial={{ opacity: 0, scale: 0.9 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-card text-sm font-medium text-primary mb-6"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-primary" />
+            Portfolio
+          </motion.span>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold">
+            Featured{" "}
+            <span className="gradient-text">Projects</span>
           </h2>
         </motion.div>
 
@@ -72,19 +88,24 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`glass-card rounded-xl overflow-hidden hover-glow group ${
-                project.featured ? "md:col-span-2" : ""
+              className={`card-3d rounded-2xl overflow-hidden group ${
+                project.featured ? "md:col-span-1" : ""
               }`}
             >
-              <div className={`h-2 bg-gradient-to-r ${project.color}`} />
-              <div className="p-6">
-                <div className="flex items-start justify-between mb-4">
-                  <div className="flex items-center gap-3">
-                    <div className={`p-3 rounded-lg bg-gradient-to-br ${project.color} bg-opacity-10`}>
+              {/* Gradient Top Bar */}
+              <div className={`h-1.5 bg-gradient-to-r ${project.color}`} />
+              
+              <div className="p-6 md:p-8">
+                {/* Header */}
+                <div className="flex items-start justify-between mb-5">
+                  <div className="flex items-center gap-4">
+                    <div className={`icon-3d p-4 rounded-xl bg-gradient-to-br ${project.color} bg-opacity-10`}>
                       <project.icon className="w-6 h-6 text-foreground" />
                     </div>
                     <div>
-                      <h3 className="font-heading font-semibold text-xl">{project.title}</h3>
+                      <h3 className="font-heading font-semibold text-xl group-hover:text-primary transition-colors">
+                        {project.title}
+                      </h3>
                       {project.featured && (
                         <span className="text-xs text-primary font-medium">Featured Project</span>
                       )}
@@ -95,7 +116,7 @@ const Projects = () => {
                       <Button
                         variant="ghost"
                         size="icon"
-                        className="w-9 h-9 text-muted-foreground hover:text-primary"
+                        className="social-icon-3d w-10 h-10 rounded-xl"
                         asChild
                       >
                         <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
@@ -106,7 +127,7 @@ const Projects = () => {
                     <Button
                       variant="ghost"
                       size="icon"
-                      className="w-9 h-9 text-muted-foreground hover:text-primary"
+                      className="social-icon-3d w-10 h-10 rounded-xl"
                       asChild
                     >
                       <a href="https://github.com/saurabhpandit7676" target="_blank" rel="noopener noreferrer">
@@ -116,37 +137,53 @@ const Projects = () => {
                   </div>
                 </div>
 
-                <p className="text-muted-foreground mb-4 leading-relaxed">{project.description}</p>
+                {/* Description */}
+                <p className="text-muted-foreground mb-6 leading-relaxed">{project.description}</p>
 
-                <div className="flex flex-wrap gap-2">
+                {/* Tech Stack */}
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1.5 text-xs rounded-full bg-muted/50 text-muted-foreground font-medium"
+                      className="skill-tag px-3 py-1.5 text-xs rounded-lg text-muted-foreground font-medium"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
+
+                {/* View Details Button */}
+                {project.liveLink && (
+                  <a 
+                    href={project.liveLink} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-primary font-medium text-sm group/link"
+                  >
+                    View Live Demo
+                    <ArrowUpRight className="w-4 h-4 group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
+                  </a>
+                )}
               </div>
             </motion.div>
           ))}
         </div>
 
+        {/* GitHub CTA */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="text-center mt-10"
+          className="text-center mt-12"
         >
           <Button
+            className="glass-card border-primary/30 text-foreground hover:bg-primary/10 hover:border-primary/50 px-8 py-6 rounded-xl font-semibold transition-all duration-300"
             variant="outline"
-            className="border-primary/50 text-foreground hover:bg-primary/10"
             asChild
           >
             <a href="https://github.com/saurabhpandit7676" target="_blank" rel="noopener noreferrer">
-              <Github className="w-4 h-4 mr-2" />
+              <Github className="w-5 h-5 mr-2" />
               View All on GitHub
             </a>
           </Button>
