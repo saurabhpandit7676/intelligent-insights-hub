@@ -100,9 +100,12 @@ const Hero = () => {
               <Button
                 variant="outline"
                 className="border-primary/50 text-foreground hover:bg-primary/10 px-6 py-3 rounded-lg font-medium"
+                asChild
               >
-                <Download className="w-4 h-4 mr-2" />
-                Download Resume
+                <a href="https://drive.google.com/file/d/19MQyWeECfm9lRz7svsfEDsTmruc1almb/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                  <Download className="w-4 h-4 mr-2" />
+                  Download Resume
+                </a>
               </Button>
               <Button
                 onClick={scrollToContact}

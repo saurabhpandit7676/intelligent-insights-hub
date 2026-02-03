@@ -11,6 +11,16 @@ const Projects = () => {
       techStack: ["Python", "NLP", "Audio Analysis", "Machine Learning", "FastAPI"],
       color: "from-primary to-cyan-400",
       featured: true,
+      liveLink: null,
+    },
+    {
+      icon: Database,
+      title: "UIDAI Demographic Intelligence Platform",
+      description: "Advanced demographic analysis platform for UIDAI data insights, featuring interactive visualizations and intelligent data processing.",
+      techStack: ["React", "Data Visualization", "Analytics", "Dashboard", "Vercel"],
+      color: "from-blue-500 to-indigo-400",
+      featured: true,
+      liveLink: "https://uidai-demographic-intelligence-plat.vercel.app/",
     },
     {
       icon: BarChart3,
@@ -18,6 +28,7 @@ const Projects = () => {
       description: "Comprehensive machine learning projects covering regression, classification, and various predictive modeling techniques.",
       techStack: ["Python", "Scikit-learn", "Pandas", "NumPy", "Matplotlib"],
       color: "from-accent to-purple-400",
+      liveLink: null,
     },
     {
       icon: Database,
@@ -25,6 +36,7 @@ const Projects = () => {
       description: "Deep dive into clustering algorithms including KMeans and DBSCAN for pattern discovery in unlabeled data.",
       techStack: ["Python", "KMeans", "DBSCAN", "Data Visualization", "Feature Engineering"],
       color: "from-green-500 to-emerald-400",
+      liveLink: null,
     },
     {
       icon: Server,
@@ -32,6 +44,7 @@ const Projects = () => {
       description: "End-to-end deployment pipelines for machine learning models using modern web frameworks.",
       techStack: ["FastAPI", "Streamlit", "Docker", "REST APIs", "Python"],
       color: "from-orange-500 to-amber-400",
+      liveLink: null,
     },
   ];
 
@@ -78,6 +91,18 @@ const Projects = () => {
                     </div>
                   </div>
                   <div className="flex gap-2">
+                    {project.liveLink && (
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        className="w-9 h-9 text-muted-foreground hover:text-primary"
+                        asChild
+                      >
+                        <a href={project.liveLink} target="_blank" rel="noopener noreferrer">
+                          <ExternalLink className="w-4 h-4" />
+                        </a>
+                      </Button>
+                    )}
                     <Button
                       variant="ghost"
                       size="icon"
