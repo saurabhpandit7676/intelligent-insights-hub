@@ -5,11 +5,7 @@ const Certifications = () => {
   const certifications = [
     { name: "Generative AI Certified", issuer: "IBM", gradient: "from-blue-500 to-blue-600" },
     { name: "Machine Learning Certified", issuer: "Softpro", gradient: "from-emerald-500 to-green-500" },
-    { name: "Data Science – MAANG Professional", issuer: "HCL GUVI", gradient: "from-orange-500 to-amber-500" },
-    { name: "Data Science Certified", issuer: "British Airways × Forage", gradient: "from-red-500 to-rose-500" },
-    { name: "OCI: Generative AI", issuer: "Oracle", gradient: "from-red-600 to-red-500" },
     { name: "Data Analytics", issuer: "Deloitte", gradient: "from-emerald-500 to-teal-500" },
-    { name: "Professional Skills", issuer: "IBM", gradient: "from-blue-500 to-indigo-500" },
     { name: "Python Programming", issuer: "HackerRank", gradient: "from-green-500 to-emerald-500" },
     { name: "SQL Fundamentals", issuer: "Coursera", gradient: "from-blue-400 to-cyan-500" },
     { name: "Deep Learning Specialization", issuer: "DeepLearning.AI", gradient: "from-purple-500 to-violet-500" },
