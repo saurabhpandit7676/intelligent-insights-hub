@@ -31,14 +31,6 @@ const Projects = () => {
       liveLink: null,
     },
     {
-      icon: Database,
-      title: "Unsupervised Learning Analysis",
-      description: "Deep dive into clustering algorithms including KMeans and DBSCAN for pattern discovery in unlabeled data.",
-      techStack: ["Python", "KMeans", "DBSCAN", "Data Visualization", "Feature Engineering"],
-      color: "from-emerald-500 to-green-400",
-      liveLink: null,
-    },
-    {
       icon: Server,
       title: "ML Model Deployment",
       description: "End-to-end deployment pipelines for machine learning models using modern web frameworks.",
