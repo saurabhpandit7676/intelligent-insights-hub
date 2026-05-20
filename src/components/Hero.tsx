@@ -152,7 +152,7 @@ const Hero = () => {
                 className="glass-card border-primary/30 text-foreground hover:bg-primary/10 hover:border-primary/50 px-8 py-6 rounded-xl font-semibold text-base transition-all duration-300"
                 asChild
               >
-                <a href="https://drive.google.com/file/d/19MQyWeECfm9lRz7svsfEDsTmruc1almb/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+                <a href="https://drive.google.com/file/d/1p9WUY2zWKY1qDgHjRsCQVlDr1X4f2dyO/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
                   <Download className="w-5 h-5 mr-2" />
                   Resume
                 </a>
